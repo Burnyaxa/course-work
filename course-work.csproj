@@ -49,6 +49,7 @@
     <Compile Include="Shooter\Shooter.cs" />
     <Compile Include="Target\CircleTarget.cs" />
     <Compile Include="Target\ITarget.cs" />
+    <Compile Include="Target\HumanTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
