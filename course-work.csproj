@@ -50,6 +50,7 @@
     <Compile Include="Target\CircleTarget.cs" />
     <Compile Include="Target\ITarget.cs" />
     <Compile Include="Target\HumanTarget.cs" />
+    <Compile Include="Target\Target.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
