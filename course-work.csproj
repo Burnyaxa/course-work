@@ -48,6 +48,10 @@
     <Compile Include="Gun\Pistol.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreCpunter\CircleTargetScoreCounter.cs" />
+    <Compile Include="ScoreCpunter\HumanTargetScoreCounter.cs" />
+    <Compile Include="ScoreCpunter\ICounter.cs" />
+    <Compile Include="ScoreCpunter\ScoreCounter.cs" />
     <Compile Include="Shooter\Shooter.cs" />
     <Compile Include="Target\CircleTarget.cs" />
     <Compile Include="Target\ITarget.cs" />
