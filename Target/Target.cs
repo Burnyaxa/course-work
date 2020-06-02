@@ -8,11 +8,12 @@ namespace course_work.Target
 {
     class Target
     {
-        public string[] TargetMatrix{ get; private set; }
+        public string[] TargetMatrix{ get; set; }
         public ITarget ITarget { private get; set; }
 
         public Target(ITarget target)
         {
+            TargetMatrix = new string[] { };
             ITarget = target;
         }
 
