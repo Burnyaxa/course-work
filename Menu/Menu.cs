@@ -36,6 +36,7 @@ namespace course_work.Menu
         }
         public static void StartMenu()
         {
+            DBO.DBController controller = new DBO.DBController();
             Bow bow = new Bow();
             Pistol pistol = new Pistol();
             while (true)
@@ -43,7 +44,7 @@ namespace course_work.Menu
                 Console.WriteLine("What to do?");
                 Console.WriteLine("1. Start");
                 Console.WriteLine("2. Leaderboards");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("0. Exit");
 
                 Tasks task = (Tasks)Convert.ToInt32(Console.ReadLine());
 
@@ -123,18 +124,19 @@ namespace course_work.Menu
                                 Target.TargetPrinter.PrintTarget(target);
                                 counter.GetScore(coordinateX, coordinateY, target);
                                 counter.SumScore();
+                                counter.IncreaseShotsCounter();
                                 Console.WriteLine("Your score: {0}", counter.Score);
                                 Console.WriteLine("Total score: {0}", counter.TotalScore);
                                 Console.WriteLine("Press any key to continue....");
                                 Console.ReadKey();
                             }
                         }
-
-                        counter.ResetScore();
+                        controller.InsertResult(shooter.Name, gunChoice.ToString(), counter.Shots, counter.TotalScore, targetChoice.ToString());
+                        counter.Reset();
                         shooter.ResetInstance();
-                        
-
-
+                        break;
+                    case Tasks.Leaderboards:
+                        controller.GetResults();
                         break;
                 }
             }

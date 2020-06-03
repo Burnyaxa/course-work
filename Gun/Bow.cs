@@ -20,11 +20,23 @@ namespace course_work.Gun
             Console.WriteLine("The arrow has landed on {0},{1}", coordinateX, coordinateY);
         }
 
-        public override void ChangeDirectory(ref int coordinateX, ref int coordinateY)
+        public override void ChangeDirectory(ref int coordinateX, ref int coordinateY, Target.Target target)
         {
             Random random = new Random();
             coordinateX += random.Next(BOW_COORDINATE_X_LOWER_EDGE, BOW_COORDINATE_X_UPPER_EDGE);
             coordinateY += random.Next(BOW_COORDINATE_Y_LOWER_EDGE, BOW_COORDINATE_Y_UPPER_EDGE);
+            CorrectUnderZeroRandom(ref coordinateX);
+            CorrectUnderZeroRandom(ref coordinateY);
+            if (target.ITarget is Target.CircleTarget)
+            {
+                CorrectUpperMaxRandom(ref coordinateX, Target.Target.CIRCLE_TARGET_SIZE_X);
+                CorrectUpperMaxRandom(ref coordinateY, Target.Target.CIRCLE_TARGET_SIZE_Y);
+            }
+            if (target.ITarget is Target.HumanTarget)
+            {
+                CorrectUpperMaxRandom(ref coordinateX, Target.Target.HUMAN_TARGET_SIZE_X);
+                CorrectUpperMaxRandom(ref coordinateY, Target.Target.HUMAN_TARGET_SIZE_Y);
+            }
         }
 
         public override void ShootTarget(int coordinateX, int coordinateY, ref Target.Target target)

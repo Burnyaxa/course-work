@@ -10,6 +10,7 @@ namespace course_work.ScoreCounter
     {
         public float Score { get; private set; }
         public float TotalScore { get; private set; }
+        public int Shots { get; private set; }
         public ICounter Counter { private get; set; }
         public void GetScore(int coordinateX, int coordinateY, Target.Target target)
         {
@@ -20,6 +21,7 @@ namespace course_work.ScoreCounter
         {
             Counter = counter;
             TotalScore = 0;
+            Shots = 0;
         }
 
         public void SumScore()
@@ -27,9 +29,15 @@ namespace course_work.ScoreCounter
             TotalScore += Score;
         }
 
-        public void ResetScore()
+        public void Reset()
         {
             Score = 0;
+            Shots = 0;
+        }
+
+        public void IncreaseShotsCounter()
+        {
+            Shots++;
         }
     }
 }

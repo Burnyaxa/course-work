@@ -10,8 +10,14 @@ namespace course_work.Target
     {
         public const char CIRCLE_SEPARATOR = '#';
 
+        public const int CIRCLE_TARGET_SIZE_Y = 20;
+        public const int CIRCLE_TARGET_SIZE_X = 52;
+
+        public const int HUMAN_TARGET_SIZE_Y = 11;
+        public const int HUMAN_TARGET_SIZE_X = 32;
+
         public string[] TargetMatrix{ get; set; }
-        public ITarget ITarget { private get; set; }
+        public ITarget ITarget { get; set; }
 
         public Target(ITarget target)
         {
