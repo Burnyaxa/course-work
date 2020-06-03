@@ -14,7 +14,7 @@ namespace course_work.Gun
         private const int BOW_COORDINATE_Y_LOWER_EDGE = -3;
         private const int BOW_COORDINATE_Y_UPPER_EDGE = 3;
 
-
+        private const char BOW_ARROW_DOT = 'x';
         public override void Notify(int coordinateX, int coordinateY)
         {
             Console.WriteLine("The arrow has landed on {0},{1}", coordinateX, coordinateY);
@@ -29,8 +29,11 @@ namespace course_work.Gun
 
         public override void ShootTarget(int coordinateX, int coordinateY, ref Target.Target target)
         {
-            StringBuilder builder = new StringBuilder(target.TargetMatrix[coordinateY - 1]);
-            builder[coordinateX - 1] = 'x';
+            StringBuilder builder = new StringBuilder(target.TargetMatrix[coordinateY]);
+            if (builder[coordinateX] != Target.Target.CIRCLE_SEPARATOR)
+            {
+                builder[coordinateX] = BOW_ARROW_DOT;
+            }
         }
     }
 }

@@ -13,6 +13,8 @@ namespace course_work.Gun
         private const int PISTOL_COORDINATE_Y_LOWER_EDGE = -1;
         private const int PISTOL_COORDINATE_Y_UPPER_EDGE = 1;
 
+        private const char PRISTOL_BULLET_DOT = 'o';
+
 
         public override void Notify(int coordinateX, int coordinateY)
         {
@@ -28,8 +30,11 @@ namespace course_work.Gun
 
         public override void ShootTarget(int coordinateX, int coordinateY, ref Target.Target target)
         {
-            StringBuilder builder = new StringBuilder(target.TargetMatrix[coordinateY - 1]);
-            builder[coordinateX - 1] = 'o';
+            StringBuilder builder = new StringBuilder(target.TargetMatrix[coordinateY]);
+            if (builder[coordinateX] != Target.Target.CIRCLE_SEPARATOR)
+            {
+                builder[coordinateX] = PRISTOL_BULLET_DOT;
+            }
         }
     }
 }

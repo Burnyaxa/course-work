@@ -8,13 +8,11 @@ namespace course_work.ScoreCpunter
 {
     class CircleTargetScoreCounter : ICounter
     {
-        private const int CENTRE_COORDINATE_X = 11;
-        private const int CENTRE_COORDINATE_Y = 28;
+        private const int CENTRE_COORDINATE_X = 27;
+        private const int CENTRE_COORDINATE_Y = 10;
 
-        private const int STARTING_POSITION_Y = 1;
-        private const int ENDING_POSITION_Y = 21;
-
-        private const char CIRCLE_SEPARATOR = '#';
+        private const int STARTING_POSITION_Y = 0;
+        private const int ENDING_POSITION_Y = 20;
 
         private const float BEST_RESULT = 100; 
 
@@ -41,11 +39,11 @@ namespace course_work.ScoreCpunter
                 return false;
             }
 
-            string targetY = target.TargetMatrix[coordinateY - 1];
-            string leftPart = targetY.Substring(0, coordinateX - 1);
-            string rightPart = targetY.Substring(coordinateX - 1);
+            string targetY = target.TargetMatrix[coordinateY];
+            string leftPart = targetY.Substring(0, coordinateX);
+            string rightPart = targetY.Substring(coordinateX);
 
-            if (leftPart.IndexOf(CIRCLE_SEPARATOR) != -1 && rightPart.IndexOf(CIRCLE_SEPARATOR) != -1)
+            if (leftPart.IndexOf(Target.Target.CIRCLE_SEPARATOR) != -1 && rightPart.IndexOf(Target.Target.CIRCLE_SEPARATOR) != -1)
             {
                 return true;
             }
