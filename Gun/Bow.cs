@@ -34,6 +34,7 @@ namespace course_work.Gun
             {
                 builder[coordinateX] = BOW_ARROW_DOT;
             }
+            target.TargetMatrix[coordinateY] = builder.ToString();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course_work.ScoreCpunter
+namespace course_work.ScoreCounter
 {
     class CircleTargetScoreCounter : ICounter
     {

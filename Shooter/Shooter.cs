@@ -15,13 +15,18 @@ namespace course_work.Shooter
             Name = name;
         }
 
-        public static Shooter getInstance(string name)
+        public static Shooter GetInstance(string name)
         {
             if (instance == null)
             {
                 instance = new Shooter(name);
             }
             return instance;
+        }
+
+        public void ResetInstance()
+        {
+            instance = null;
         }
 
     }

@@ -10,6 +10,7 @@ namespace course_work
     {
         static void Main(string[] args)
         {
+            Menu.Menu.StartMenu();
         }
     }
 }

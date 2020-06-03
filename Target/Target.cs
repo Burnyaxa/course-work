@@ -15,8 +15,8 @@ namespace course_work.Target
 
         public Target(ITarget target)
         {
-            TargetMatrix = new string[] { };
             ITarget = target;
+            TargetMatrix = ITarget.GetTarget();
         }
 
         public void GetTarget()
