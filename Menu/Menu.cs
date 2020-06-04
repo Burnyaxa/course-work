@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace course_work.Menu
 {
+    /// <summary>
+    /// Menu class
+    /// </summary>
     class Menu
     {
         public enum Tasks
@@ -34,6 +37,28 @@ namespace course_work.Menu
             Exit,
             Shoot
         }
+
+        private static string GetCorrectCoordinateInput(int maxTargetSize)
+        {
+            string input;
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (input.All(char.IsDigit) && int.Parse(input) < maxTargetSize)
+                {
+                    return input;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input. Try again!");
+                    Console.Write("Input: ");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Implements menu
+        /// </summary>
         public static void StartMenu()
         {
             DBO.DBController controller = new DBO.DBController();
@@ -79,13 +104,18 @@ namespace course_work.Menu
 
                         Target.Target target;
                         ScoreCounter.ScoreCounter counter;
+                        int maxTargetX, maxTargetY;
                         switch (targetChoice)
                         {
                             default:
+                                maxTargetX = Target.Target.CIRCLE_TARGET_SIZE_X;
+                                maxTargetY = Target.Target.CIRCLE_TARGET_SIZE_Y;
                                 target = new Target.Target(new Target.CircleTarget());
                                 counter = new ScoreCounter.ScoreCounter(new ScoreCounter.CircleTargetScoreCounter());
                                 break;
                             case Targets.Human:
+                                maxTargetX = Target.Target.HUMAN_TARGET_SIZE_X;
+                                maxTargetY = Target.Target.HUMAN_TARGET_SIZE_Y;
                                 target = new Target.Target(new Target.HumanTarget());
                                 counter = new ScoreCounter.ScoreCounter(new ScoreCounter.HumanTargetScoreCounter());
                                 break;
@@ -107,10 +137,11 @@ namespace course_work.Menu
                             }
                             else
                             {
+
                                 Console.Write("Input X: ");
-                                int coordinateX = int.Parse(Console.ReadLine());
+                                int coordinateX = int.Parse(GetCorrectCoordinateInput(maxTargetX));
                                 Console.Write("Input Y: ");
-                                int coordinateY = int.Parse(Console.ReadLine());
+                                int coordinateY = int.Parse(GetCorrectCoordinateInput(maxTargetY));
                                 switch (gunChoice)
                                 {
                                     case Guns.Bow:

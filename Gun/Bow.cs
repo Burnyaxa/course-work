@@ -7,14 +7,19 @@ using course_work.Target;
 
 namespace course_work.Gun
 {
+    /// <summary>
+    /// A gun->bow class. Implements Shoot()
+    /// </summary>
     class Bow : Gun
     {
+        //Random edges
         private const int BOW_COORDINATE_X_LOWER_EDGE = -2;
         private const int BOW_COORDINATE_X_UPPER_EDGE = 2;
         private const int BOW_COORDINATE_Y_LOWER_EDGE = -3;
         private const int BOW_COORDINATE_Y_UPPER_EDGE = 3;
 
         private const char BOW_ARROW_DOT = 'x';
+
         public override void Notify(int coordinateX, int coordinateY)
         {
             Console.WriteLine("The arrow has landed on {0},{1}", coordinateX, coordinateY);

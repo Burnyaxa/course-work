@@ -6,17 +6,25 @@ using System.Threading.Tasks;
 
 namespace course_work.ScoreCounter
 {
+    /// <summary>
+    /// Class to manipulate with score
+    /// </summary>
     class ScoreCounter
     {
         public float Score { get; private set; }
         public float TotalScore { get; private set; }
         public int Shots { get; private set; }
         public ICounter Counter { private get; set; }
+
         public void GetScore(int coordinateX, int coordinateY, Target.Target target)
         {
             Score = Counter.GetScore(coordinateX, coordinateY, target);
         }
 
+        /// <summary>
+        /// Strategy constructor
+        /// </summary>
+        /// <param name="counter"></param>
         public ScoreCounter(ICounter counter)
         {
             Counter = counter;

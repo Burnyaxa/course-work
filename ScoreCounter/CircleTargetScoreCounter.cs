@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace course_work.ScoreCounter
 {
+    /// <summary>
+    /// Concrete strategy
+    /// </summary>
     class CircleTargetScoreCounter : ICounter
     {
         private const int CENTRE_COORDINATE_X = 27;

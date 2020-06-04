@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace course_work.Shooter
 {
+    /// <summary>
+    /// Singletone shooter class
+    /// </summary>
     class Shooter
     {
         private static Shooter instance;

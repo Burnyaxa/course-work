@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace course_work.Target
 {
+    /// <summary>
+    /// Class to print a target
+    /// </summary>
     class TargetPrinter
     {
+        /// <summary>
+        /// Prints a target
+        /// </summary>
+        /// <param name="target"></param>
         public static void PrintTarget(Target target)
         {
             foreach(string str in target.TargetMatrix)

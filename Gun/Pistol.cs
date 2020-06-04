@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace course_work.Gun
 {
+    /// <summary>
+    ///  A gun->pistol class. Implements Shoot()
+    /// </summary>
     class Pistol : Gun
     {
         private const int PISTOL_COORDINATE_X_LOWER_EDGE = -1;
@@ -39,9 +42,6 @@ namespace course_work.Gun
                 CorrectUpperMaxRandom(ref coordinateY, Target.Target.HUMAN_TARGET_SIZE_Y);
             }
         }
-
-      
-
 
         public override void ShootTarget(int coordinateX, int coordinateY, ref Target.Target target)
         {

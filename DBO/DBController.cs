@@ -9,6 +9,10 @@ using System.Configuration;
 
 namespace course_work.DBO
 {
+    /// <summary>
+    /// A class to control DB
+    /// </summary>
+   
     class DBController
     {
         public string ConnectionString { get; private set; }
@@ -17,11 +21,23 @@ namespace course_work.DBO
         private DataSet ds;
         private DataTable dt;
 
+        /// <summary>
+        /// A default constructor
+        /// </summary>
         public DBController()
         {
             ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             connection = new SqlConnection(ConnectionString);
         }
+
+        /// <summary>
+        /// Inserts a result to the DB
+        /// </summary>
+        /// <param name="name">Player name</param>
+        /// <param name="weaponType">Weapon Type</param>
+        /// <param name="shots">Quantity of shots</param>
+        /// <param name="totalScore">Totatl score</param>
+        /// <param name="targetType">Target type</param>
         public void InsertResult(string name, string weaponType, int shots, float totalScore, string targetType)
         {
             connection.Open();
@@ -37,6 +53,9 @@ namespace course_work.DBO
             connection.Close();
         }
 
+        /// <summary>
+        /// Get leaderboards
+        /// </summary>
         public void GetResults()
         {
             connection.Open();

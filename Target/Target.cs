@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace course_work.Target
 {
+    /// <summary>
+    /// Contains info about targets
+    /// </summary>
     class Target
     {
         public const char CIRCLE_SEPARATOR = '#';
@@ -19,6 +22,10 @@ namespace course_work.Target
         public string[] TargetMatrix{ get; set; }
         public ITarget ITarget { get; set; }
 
+        /// <summary>
+        /// Strategy constructor
+        /// </summary>
+        /// <param name="target"></param>
         public Target(ITarget target)
         {
             ITarget = target;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Configuration;
 namespace course_work.Target
 {
+    /// <summary>
+    /// Concrete strategy
+    /// </summary>
     class CircleTarget : ITarget
     {
         public string[] GetTarget()

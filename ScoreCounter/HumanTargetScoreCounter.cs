@@ -7,6 +7,9 @@ using course_work.Target;
 
 namespace course_work.ScoreCounter
 {
+    /// <summary>
+    /// Concrete strategy
+    /// </summary>
     class HumanTargetScoreCounter : ICounter
     {
         private const int BODY_LEFT_X = 11;
